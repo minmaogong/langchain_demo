@@ -51,4 +51,5 @@ async def call_llm_async(messages: list[str]):
 
 if __name__ == "__main__":
     call_llm_sync(MESSAGES)
+    # 执行异步调用
     asyncio.run(call_llm_async(MESSAGES) )
