@@ -41,7 +41,7 @@ async def call_llm_async(messages: list[str]):
     )
     # 记录时间
     time0 = time.perf_counter()
-    task = [llm.ainvoke(input=message) for message in messages] # 返回的是一个协程对象列表
+    task = [llm.ainvoke(input=message) for message in messages] # 返回的是一个协程对象列表，没有真正执行
     # asyncio.gather 并发执行
     await asyncio.gather(*task) # * -> 序列解包 ** -> 字典解包
     time1 = time.perf_counter()
