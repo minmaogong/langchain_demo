@@ -25,9 +25,12 @@ llm = ChatOpenAI(
 #         "content": "请推荐几家适合家庭聚餐的餐厅，并说明理由。"
 #     }
 # ])
+import logging
+logging.basicConfig(level=logging.DEBUG)
 res = llm.invoke(input=[
     SystemMessage(content="你是一名资深的美食博主，擅长分享美食制作技巧和餐厅推荐。"),
     HumanMessage(content="九转大肠这道菜味道怎么样？")
 ])
 
+print(type(res))
 print(res.content)
