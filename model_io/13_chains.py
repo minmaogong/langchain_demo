@@ -1,5 +1,6 @@
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnableSequence
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
@@ -25,6 +26,8 @@ def prompt_template_demo(product: str, aspect1: str, aspect2: str) -> None:
 
     # 组成调用链
     chain = chat_prompt_template | llm | str_output_parser
+
+    # chain = RunnableSequence(chat_prompt_template, llm, str_output_parser)
 
     res = chain.invoke({
         "product": product,
