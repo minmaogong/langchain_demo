@@ -37,3 +37,9 @@ res = llm.invoke(
     }])
 
 print(res.content)
+
+# 使用json_output_parser 将输出的json字符串传唤成json对象
+json_obj = json_output_parser.invoke(res)
+print(type(json_obj))
+print(json_obj['prime'])
+print(json_obj['count'])
